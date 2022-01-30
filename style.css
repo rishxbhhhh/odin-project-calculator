@@ -66,3 +66,12 @@ body {
 .equal {
   background-color: rgba(74, 231, 54, 0.911);
 }
+
+@media screen and (max-width: 800px){
+  body{
+    flex-direction: column;
+  }
+  .container{
+    margin-top:2%;
+  }
+}

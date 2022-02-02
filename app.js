@@ -1,6 +1,19 @@
 let screen = document.querySelector(".screen");
 btn = document.querySelectorAll(".grid-item");
-let screenValue = "";
+let screenValue = screen.value;
+screen.focus();
+screen.addEventListener("keypress",(e)=>{
+  // let name = e.key;
+  let code = e.code;
+  if (code == "NumpadEnter" || code == "Enter") {
+    screenValue = screen.value;
+    screenValue = eval(screenValue);
+    if(screenValue.length>20){
+      screenValue = toExponential(screenValue);
+    }
+    screen.value = screenValue;
+  }
+});
 for (item of btn) {
   item.addEventListener("click", function (e) {
     btnText = e.target.innerHTML;
@@ -15,12 +28,15 @@ for (item of btn) {
       screen.value = screenValue;
     } else if (btnText == "=") {
       screenValue = eval(screenValue);
+      if(screenValue.length>20){
+        screenValue = toExponential(screenValue);
+      }
       screen.value = screenValue;
     } else if (btnText == "C") {
       screen.value = "";
       screenValue = "";
     } else if (btnText == "Del") {
-      screenValue = screenValue.slice(0, -1);
+      screenValue = String(screenValue).slice(0, -1);
       screen.value = screenValue;
     } else if (btnText == "+/-") {
       screenValue = eval(screenValue) * -1;

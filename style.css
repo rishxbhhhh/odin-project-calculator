@@ -5,6 +5,8 @@ body {
   align-items: center;
   align-content: center;
   justify-content: center;
+  background-image: linear-gradient(#ffffff, #ffffff);
+  background-color: #000000;
 }
 
 .container {
@@ -47,9 +49,12 @@ body {
   text-align: right;
   background-color: rgba(160, 158, 158, 0.8);
   box-shadow: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.screen:active, .screen:hover {
+.screen:active,
+.screen:hover {
   transform: none;
   opacity: 1;
   box-shadow: none;
@@ -67,11 +72,11 @@ body {
   background-color: rgba(74, 231, 54, 0.911);
 }
 
-@media screen and (max-width: 800px){
-  body{
+@media screen and (max-width: 800px) {
+  body {
     flex-direction: column;
   }
-  .container{
-    margin-top:2%;
+  .container {
+    margin-top: 2%;
   }
 }
